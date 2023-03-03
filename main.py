@@ -2,13 +2,13 @@ import joblib
 import pandas as pd
 
 from sklearn.pipeline import Pipeline
-from sklearn.linear_model import LogisticRegression, Perceptron, RidgeClassifier, SGDClassifier
-from sklearn.svm import SVC, LinearSVC
-from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, ExtraTreesClassifier
-from sklearn.ensemble import BaggingClassifier, AdaBoostClassifier, VotingClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, ExtraTreesClassifier, AdaBoostClassifier
+from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neural_network import MLPClassifier
+
 from sklearn import metrics
 
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, cross_validate
@@ -17,26 +17,22 @@ from sklearn.model_selection import train_test_split, cross_val_score, GridSearc
 def main():
     print('Scikit-learn models tuning and comparison')
 
-    df = pd.read_csv('feed.csv')
+    df = pd.read_csv('data/feed.csv')
 
     X = df.drop('income', axis=1)
     y = df['income'].apply(lambda x: 1.0 if x > 0.0 else 0.0)
 
     models = (
         LogisticRegression(),
-        Perceptron(),
-        RidgeClassifier(),
         SGDClassifier(),
-        SVC(verbose=True),
-        LinearSVC(verbose=True),
+        DecisionTreeClassifier(),
         RandomForestClassifier(),
         GradientBoostingClassifier(),
         ExtraTreesClassifier(),
-        BaggingClassifier(),
         AdaBoostClassifier(),
-        KNeighborsClassifier(),
+        SVC(),
         GaussianNB(),
-        DecisionTreeClassifier()
+        MLPClassifier()
     )
 
     best_score = .0
