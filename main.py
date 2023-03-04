@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 
 
 def main():
-    print('Scikit-learn models tuning and comparison')
+    print('Scikit-learn models GridSearchCV tuning and comparison')
 
     with open('data/grid_search_params.json', 'r') as file:
         grid_search_params = json.load(file)
