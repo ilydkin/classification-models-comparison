@@ -1,0 +1,11 @@
+INFO:root:model: LogisticRegression best score: 0.8513513559323908
+INFO:root:model: SGDClassifier best score: 0.8501611893485694
+INFO:root:model: DecisionTreeClassifier best score: 0.8536546557357356
+INFO:root:model: RandomForestClassifier best score: 0.8546911903913536
+INFO:root:model: GradientBoostingClassifier best score: 0.8717367585778195
+INFO:root:model: ExtraTreesClassifier best score: 0.8334229144965029
+INFO:root:model: AdaBoostClassifier best score: 0.8670530519118504
+INFO:root:model: SVC best score: 0.8554974577073713
+INFO:root:model: GaussianNB best score: 0.5649564591624786
+INFO:root:model: MLPClassifier best score: 0.8582618301632824
+INFO:root:best model: GradientBoostingClassifier, accuracy: 0.8717best parameters: {'criterion': 'squared_error', 'n_estimators': 300}

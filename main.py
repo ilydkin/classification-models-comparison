@@ -9,15 +9,15 @@ from sklearn.svm import SVC
 from sklearn.naive_bayes import GaussianNB
 from sklearn.neural_network import MLPClassifier
 
-from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV, cross_validate
+from sklearn.model_selection import train_test_split, GridSearchCV
 
 
 
 def main():
     print('Scikit-learn models tuning and comparison')
 
-    with open('data/grid_search_dict.json', 'r') as file:
-        grid_search_dict = json.load(file)
+    with open('data/grid_search_params.json', 'r') as file:
+        grid_search_params = json.load(file)
 
     df = pd.read_csv('data/feed.csv')
 
@@ -44,17 +44,17 @@ def main():
     for model in models:
         GS = GridSearchCV(
             estimator=model,
-            param_grid=grid_search_dict[type(model).__name__],
+            param_grid=grid_search_params[type(model).__name__],
             scoring='accuracy',
             cv=5,
             verbose=4
         )
 
         GS.fit(train, target)
-        print (f'model: {type(model).__name__} best score{GS.best_score_} ')
+        print (f'model: {type(model).__name__} best score: {GS.best_score_}')
 
-        if GS.best_score_() > best_score:
-            best_score = GS.best_score_()
+        if GS.best_score_ > best_score:
+            best_score = GS.best_score_
             best_model = GS.best_estimator_
 
     print(f'best model: {type(best_model).__name__}, accuracy: {best_score:.4f}')
