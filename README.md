@@ -20,7 +20,7 @@ And this as an alternative to manual work in Jupytor Notebook. So, this what thi
 ### EDA.ipynb
 Exploratory data analysis. An almost clean data set describes several features correlated with the target parameter "income".
 The "income" variable may take one of the two values - over 50K or less, which makes its prediction a problem of classification.
-Check for ProfileReport, a powerful tool for EDA applied in the notebook: https://github.com/ydataai/ydata-profiling
+Check for ProfileReport, a powerful tool for EDA, applied in this notebook: https://github.com/ydataai/ydata-profiling.
 Features standardization and encoding are also here, whereas the resulting 'feed.csv' file is a fully prepared feed for the models.
 
 ### grid_search.ipynb
